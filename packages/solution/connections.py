@@ -4,12 +4,13 @@ import numpy as np
 
 
 def get_motor_left_matrix(shape: Tuple[int, int]) -> np.ndarray:
-    res = np.ones(shape=shape, dtype="float32")*(-0.25)
-    # TODO define left matrix
-    return res
+    res = np.zeros(shape=shape,dtype="float32")
+    res[:,0:int(shape[1]/2)+2] = -1.5
 
+    return res
 
 def get_motor_right_matrix(shape: Tuple[int, int]) -> np.ndarray:
-    res = np.ones(shape=shape, dtype="float32")*(0.25)
-    # TODO define right matrix
-    return res
+     res = np.zeros(shape=shape,dtype="float32")
+     res [ :,int(shape[1])-1:int(shape[1]/2)-1:-1] = 1.5
+     
+     return res
